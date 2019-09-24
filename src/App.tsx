@@ -60,7 +60,7 @@ class App extends React.Component<Props, State> {
       var options = {
         method: "POST",
         uri:
-          "https://7eggkw15dk.execute-api.us-west-2.amazonaws.com/Live/party/register",
+          "https://9p6vivastb.execute-api.us-east-2.amazonaws.com/prod/party/register",
         body: {
           user: uuid,
           payments: {
