@@ -10,6 +10,7 @@ import clsx from "clsx";
 import DomainNamePanelDetails from "./DomainName";
 import EmailPanelDetails from "./EmailPanelDetails";
 import MobileNumberPanelDetails from "./MobileNumberPanelDetails";
+import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -43,14 +44,13 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Identities(this: any) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState<string | false>(false);
-  const [values, setValues] = React.useState({
-    domainName: ""
-  });
-  const [loader, setLoader] = React.useState({
-    domainNameVisible: false
-  });
+
   const [loading, setLoading] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
+  const [email, setEmail] = React.useState(false);
+  const [domain, setDomain] = React.useState(false);
+  const [phone, setPhone] = React.useState(false);
+
   let timer: any = React.useRef<number>();
 
   React.useEffect(() => {
@@ -76,15 +76,6 @@ export default function Identities(this: any) {
   ) => {
     setExpanded(isExpanded ? panel : false);
   };
-  const handleInputChange = (name: string) => (event: {
-    target: { value: any };
-  }) => {
-    setValues({ ...values, [name]: event.target.value });
-  };
-
-  const buttonClassname = clsx({
-    [classes.buttonSuccess]: success
-  });
 
   return (
     <div className={classes.root}>
@@ -97,13 +88,19 @@ export default function Identities(this: any) {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography className={classes.heading}>Domain Name</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Receive payments addressed directly to a domain name
-          </Typography>
-          <CheckIcon />
+          <Grid container spacing={2} justify={"space-between"}>
+            <Grid item>
+              <Typography className={classes.heading}>Domain Name</Typography>
+            </Grid>
+            <Grid item>
+              <Typography className={classes.secondaryHeading}>
+                Receive payments addressed directly to a domain name
+              </Typography>
+            </Grid>
+            <Grid item>{domain && <CheckIcon />}</Grid>
+          </Grid>
         </ExpansionPanelSummary>
-        <DomainNamePanelDetails />
+        <DomainNamePanelDetails setCheckMark={setDomain} />
       </ExpansionPanel>
       <ExpansionPanel
         expanded={expanded === "panel2"}
@@ -114,12 +111,19 @@ export default function Identities(this: any) {
           aria-controls="panel2bh-content"
           id="panel2bh-header"
         >
-          <Typography className={classes.heading}>Email Address</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Receive payments to your email address
-          </Typography>
+          <Grid container spacing={2} justify={"space-between"}>
+            <Grid item>
+              <Typography className={classes.heading}>Email Address</Typography>
+            </Grid>
+            <Grid item>
+              <Typography className={classes.secondaryHeading}>
+                Receive payments to your email address
+              </Typography>
+            </Grid>
+            <Grid item>{email && <CheckIcon />}</Grid>
+          </Grid>
         </ExpansionPanelSummary>
-        <EmailPanelDetails />
+        <EmailPanelDetails setCheckMark={setEmail} />
       </ExpansionPanel>
       <ExpansionPanel
         expanded={expanded === "panel3"}
@@ -130,12 +134,19 @@ export default function Identities(this: any) {
           aria-controls="panel3bh-content"
           id="panel3bh-header"
         >
-          <Typography className={classes.heading}>Mobile Number</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Receive payments directly to a phone number.
-          </Typography>
+          <Grid container spacing={2} justify={"space-between"}>
+            <Grid item>
+              <Typography className={classes.heading}>Phone Number</Typography>
+            </Grid>
+            <Grid item>
+              <Typography className={classes.secondaryHeading}>
+                Receive payments to a phone number
+              </Typography>
+            </Grid>
+            <Grid item>{phone && <CheckIcon />}</Grid>
+          </Grid>
         </ExpansionPanelSummary>
-        <MobileNumberPanelDetails />
+        <MobileNumberPanelDetails setCheckMark={setPhone} />
       </ExpansionPanel>
     </div>
   );

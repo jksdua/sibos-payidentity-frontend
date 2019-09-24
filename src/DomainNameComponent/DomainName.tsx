@@ -40,14 +40,11 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   })
 );
-export default function DomainNamePanelDetails(this: any) {
+export default function DomainNamePanelDetails(props: any) {
   const classes = useStyles({});
 
   const [values, setValues] = React.useState({
     domainName: ""
-  });
-  const [loader, setLoader] = React.useState({
-    domainNameVisible: false
   });
   const [loading, setLoading] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
@@ -69,6 +66,7 @@ export default function DomainNamePanelDetails(this: any) {
       timer.current = setTimeout(() => {
         setSuccess(true);
         setLoading(false);
+        props.setCheckMark(true);
       }, 2000);
     }
   };
