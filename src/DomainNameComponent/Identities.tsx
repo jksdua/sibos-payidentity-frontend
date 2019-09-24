@@ -2,12 +2,14 @@ import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import { green } from "@material-ui/core/colors";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import CheckIcon from "@material-ui/icons/Check";
 import clsx from "clsx";
 import DomainNamePanelDetails from "./DomainName";
+import EmailPanelDetails from "./EmailPanelDetails";
+import MobileNumberPanelDetails from "./MobileNumberPanelDetails";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -79,11 +81,7 @@ export default function Identities(this: any) {
   }) => {
     setValues({ ...values, [name]: event.target.value });
   };
-  const handleMouseOut = (name: string) => (event: any) => {
-    setLoader({ ...loader, [name]: !loader.domainNameVisible });
-    console.log("DomainNameVisible:");
-    console.log(loader.domainNameVisible);
-  };
+
   const buttonClassname = clsx({
     [classes.buttonSuccess]: success
   });
@@ -101,8 +99,9 @@ export default function Identities(this: any) {
         >
           <Typography className={classes.heading}>Domain Name</Typography>
           <Typography className={classes.secondaryHeading}>
-            Register a domain name to receive payments
+            Receive payments addressed directly to a domain name
           </Typography>
+          <CheckIcon />
         </ExpansionPanelSummary>
         <DomainNamePanelDetails />
       </ExpansionPanel>
@@ -120,13 +119,7 @@ export default function Identities(this: any) {
             Receive payments to your email address
           </Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat
-            lectus, varius pulvinar diam eros in elit. Pellentesque convallis
-            laoreet laoreet.
-          </Typography>
-        </ExpansionPanelDetails>
+        <EmailPanelDetails />
       </ExpansionPanel>
       <ExpansionPanel
         expanded={expanded === "panel3"}
@@ -142,12 +135,7 @@ export default function Identities(this: any) {
             Receive payments directly to a phone number.
           </Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer
-            sit amet egestas eros, vitae egestas augue. Duis vel est augue.
-          </Typography>
-        </ExpansionPanelDetails>
+        <MobileNumberPanelDetails />
       </ExpansionPanel>
     </div>
   );

@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   })
 );
-export default function DomainNamePanelDetails(this: any) {
+export default function EmailPanelDetails(this: any) {
   const classes = useStyles({});
 
   const [values, setValues] = React.useState({
@@ -83,8 +83,8 @@ export default function DomainNamePanelDetails(this: any) {
       <Grid container spacing={2} alignItems={"center"}>
         <Grid item>
           <TextField
-            id="domain-name-field"
-            label="Domain Name"
+            id="email-field"
+            label="Email"
             value={values.domainName}
             disabled={success}
             margin="normal"
@@ -100,7 +100,7 @@ export default function DomainNamePanelDetails(this: any) {
               disabled={loading}
               onClick={handleButtonClick}
             >
-              Verify Ownership
+              Verify Email
             </Button>
             {loading && (
               <CircularProgress size={24} className={classes.buttonProgress} />
