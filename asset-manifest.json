@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/SibosYellowFrontEnd/static/css/main.a8a1fc13.chunk.css",
-    "main.js": "/SibosYellowFrontEnd/static/js/main.00814430.chunk.js",
-    "main.js.map": "/SibosYellowFrontEnd/static/js/main.00814430.chunk.js.map",
-    "runtime~main.js": "/SibosYellowFrontEnd/static/js/runtime~main.809e0f9c.js",
-    "runtime~main.js.map": "/SibosYellowFrontEnd/static/js/runtime~main.809e0f9c.js.map",
-    "static/js/2.687f62e8.chunk.js": "/SibosYellowFrontEnd/static/js/2.687f62e8.chunk.js",
-    "static/js/2.687f62e8.chunk.js.map": "/SibosYellowFrontEnd/static/js/2.687f62e8.chunk.js.map",
-    "index.html": "/SibosYellowFrontEnd/index.html",
-    "precache-manifest.8ac5a0dbc0f8f4ada8466eeda45a1ace.js": "/SibosYellowFrontEnd/precache-manifest.8ac5a0dbc0f8f4ada8466eeda45a1ace.js",
-    "service-worker.js": "/SibosYellowFrontEnd/service-worker.js",
-    "static/css/main.a8a1fc13.chunk.css.map": "/SibosYellowFrontEnd/static/css/main.a8a1fc13.chunk.css.map"
+    "main.css": "/sibos-payidentity-frontend/static/css/main.a8a1fc13.chunk.css",
+    "main.js": "/sibos-payidentity-frontend/static/js/main.fe66dadf.chunk.js",
+    "main.js.map": "/sibos-payidentity-frontend/static/js/main.fe66dadf.chunk.js.map",
+    "runtime~main.js": "/sibos-payidentity-frontend/static/js/runtime~main.80210cf2.js",
+    "runtime~main.js.map": "/sibos-payidentity-frontend/static/js/runtime~main.80210cf2.js.map",
+    "static/js/2.255d1deb.chunk.js": "/sibos-payidentity-frontend/static/js/2.255d1deb.chunk.js",
+    "static/js/2.255d1deb.chunk.js.map": "/sibos-payidentity-frontend/static/js/2.255d1deb.chunk.js.map",
+    "index.html": "/sibos-payidentity-frontend/index.html",
+    "precache-manifest.b24a359304240490fd7e13b3e0ad43d5.js": "/sibos-payidentity-frontend/precache-manifest.b24a359304240490fd7e13b3e0ad43d5.js",
+    "service-worker.js": "/sibos-payidentity-frontend/service-worker.js",
+    "static/css/main.a8a1fc13.chunk.css.map": "/sibos-payidentity-frontend/static/css/main.a8a1fc13.chunk.css.map"
   }
 }
