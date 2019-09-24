@@ -6,7 +6,6 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import CheckIcon from "@material-ui/icons/Check";
-import clsx from "clsx";
 import DomainNamePanelDetails from "./DomainName";
 import EmailPanelDetails from "./EmailPanelDetails";
 import MobileNumberPanelDetails from "./MobileNumberPanelDetails";
@@ -44,31 +43,9 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Identities(this: any) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState<string | false>(false);
-
-  const [loading, setLoading] = React.useState(false);
-  const [success, setSuccess] = React.useState(false);
   const [email, setEmail] = React.useState(false);
   const [domain, setDomain] = React.useState(false);
   const [phone, setPhone] = React.useState(false);
-
-  let timer: any = React.useRef<number>();
-
-  React.useEffect(() => {
-    return () => {
-      clearTimeout(timer.current);
-    };
-  }, []);
-
-  const handleButtonClick = () => {
-    if (!loading) {
-      setSuccess(false);
-      setLoading(true);
-      timer.current = setTimeout(() => {
-        setSuccess(true);
-        setLoading(false);
-      }, 2000);
-    }
-  };
 
   const handleChange = (panel: string) => (
     event: React.ChangeEvent<{}>,

@@ -1,10 +1,15 @@
 import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import CheckIcon from "@material-ui/icons/Check";
+import { Grid } from "@material-ui/core";
+import IbanPanelDetails from "./IbanPanelDetails";
+import PayPalPanelDetails from "./PayPalPanelDetails";
+import EthereumPanelDetails from "./EthereumPanelDetails";
+import BitcoinPanelDetails from "./BitcoinPanelDetails";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,6 +31,10 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function PaymentMethodPanels() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState<string | false>(false);
+  const [iban, setIban] = React.useState(false);
+  const [payPal, setPayPal] = React.useState(false);
+  const [ethereum, setEthereum] = React.useState(false);
+  const [bitcoin, setBitcoin] = React.useState(false);
 
   const handleChange = (panel: string) => (
     event: React.ChangeEvent<{}>,
@@ -45,17 +54,19 @@ export default function PaymentMethodPanels() {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography className={classes.heading}>IBAN</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Receive payments to your IBAN via SWIFT
-          </Typography>
+          <Grid container spacing={2} justify={"space-between"}>
+            <Grid item>
+              <Typography className={classes.heading}>IBAN</Typography>
+            </Grid>
+            <Grid item>
+              <Typography className={classes.secondaryHeading}>
+                Receive payments to your IBAN via Swift
+              </Typography>
+            </Grid>
+            <Grid item>{iban && <CheckIcon />}</Grid>
+          </Grid>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
-          </Typography>
-        </ExpansionPanelDetails>
+        <IbanPanelDetails setCheckMark={setIban} />
       </ExpansionPanel>
 
       <ExpansionPanel
@@ -67,17 +78,19 @@ export default function PaymentMethodPanels() {
           aria-controls="panel3bh-content"
           id="panel3bh-header"
         >
-          <Typography className={classes.heading}>PayPal Account</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Receive PayPal transfers
-          </Typography>
+          <Grid container spacing={2} justify={"space-between"}>
+            <Grid item>
+              <Typography className={classes.heading}>PayPal</Typography>
+            </Grid>
+            <Grid item>
+              <Typography className={classes.secondaryHeading}>
+                Receive PayPal transfers
+              </Typography>
+            </Grid>
+            <Grid item>{payPal && <CheckIcon />}</Grid>
+          </Grid>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer
-            sit amet egestas eros, vitae egestas augue. Duis vel est augue.
-          </Typography>
-        </ExpansionPanelDetails>
+        <PayPalPanelDetails setCheckMark={setPayPal} />
       </ExpansionPanel>
       <ExpansionPanel
         expanded={expanded === "panel2"}
@@ -88,18 +101,19 @@ export default function PaymentMethodPanels() {
           aria-controls="panel2bh-content"
           id="panel2bh-header"
         >
-          <Typography className={classes.heading}>Ethereum Address</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Receive digital currencies with an Ethereum Wallet
-          </Typography>
+          <Grid container spacing={2} justify={"space-between"}>
+            <Grid item>
+              <Typography className={classes.heading}>Ethereum</Typography>
+            </Grid>
+            <Grid item>
+              <Typography className={classes.secondaryHeading}>
+                Receive payments to your Ethereum Wallet
+              </Typography>
+            </Grid>
+            <Grid item>{ethereum && <CheckIcon />}</Grid>
+          </Grid>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat
-            lectus, varius pulvinar diam eros in elit. Pellentesque convallis
-            laoreet laoreet.
-          </Typography>
-        </ExpansionPanelDetails>
+        <EthereumPanelDetails setCheckMark={setEthereum} />
       </ExpansionPanel>
       <ExpansionPanel
         expanded={expanded === "panel2"}
@@ -110,18 +124,19 @@ export default function PaymentMethodPanels() {
           aria-controls="panel2bh-content"
           id="panel2bh-header"
         >
-          <Typography className={classes.heading}>Bitcoin Address</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Receive bitcoin
-          </Typography>
+          <Grid container spacing={2} justify={"space-between"}>
+            <Grid item>
+              <Typography className={classes.heading}>Bitcoin</Typography>
+            </Grid>
+            <Grid item>
+              <Typography className={classes.secondaryHeading}>
+                Receive payments to your Bitcoin Wallet
+              </Typography>
+            </Grid>
+            <Grid item>{bitcoin && <CheckIcon />}</Grid>
+          </Grid>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat
-            lectus, varius pulvinar diam eros in elit. Pellentesque convallis
-            laoreet laoreet.
-          </Typography>
-        </ExpansionPanelDetails>
+        <BitcoinPanelDetails setCheckMark={setBitcoin} />
       </ExpansionPanel>
     </div>
   );

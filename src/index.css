@@ -40,6 +40,10 @@ code {
   width: 100%;
 }
 
+.yellow {
+  color: #e6e600;
+}
+
 a {
   color: darkcyan;
 }

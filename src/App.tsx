@@ -1,13 +1,12 @@
 import React from "react";
+import uuidv4 from "uuid";
 import Typography from "@material-ui/core/Typography";
 import withRoot from "./withRoot";
 import { Grid, Paper, Button } from "@material-ui/core";
 import Oireachtas from "./OireachtasService/oireachtas";
 import Bill from "./OireachtasService/interfaces/iBill";
-import logger from "./logger/winston";
 import CastVoteModalComponent from "./CastVoteModalComponent/CastVoteModalComponent";
 import BlockchainService from "./BlockchainService/blockchainService";
-import ControlledExpansionPanels from "./DomainNameComponent/Identities";
 import PaymentMethodPanels from "./DomainNameComponent/PaymentMethodPanels";
 import Identities from "./DomainNameComponent/Identities";
 
@@ -37,53 +36,56 @@ class App extends React.Component<Props, State> {
    */
   async save() {
     return new Promise(function(resolve, reject) {
-      const oireachtasService = new Oireachtas();
+      // Get identity Inputs
+      const domainNameInput = document.getElementById("domain-name-field")!;
+      const emailInput = document.getElementById("email-field")!;
+      const phoneInput = document.getElementById("mobile-number-field")!;
 
-      // Calculate the date 7 days ago, then the date 14 days ahead of now for getting bills.
-      const date = new Date();
-      const resultLimit = "50";
-      const billState = "Current";
-      const date7DaysAgo = new Date(date.getTime() - 7 * 24 * 60 * 60 * 1000);
-      const date7DaysAgoString = date7DaysAgo.toISOString().substring(0, 10);
-      const date14DaysFromNow = new Date(
-        date.getTime() + 14 * 24 * 60 * 60 * 1000
-      );
-      const date14DaysFromNowString = date14DaysFromNow
-        .toISOString()
-        .substring(0, 10);
-      const billsApiRequestUrl: string = oireachtasService.prepareDailBillsRequestUrl(
-        billState,
-        date7DaysAgoString,
-        date14DaysFromNowString,
-        resultLimit,
-        "",
-        "ga"
-      );
+      // Get Payment Inputs
+      const ibanInput = document.getElementById("iban-field")!;
+      const payPalInput = document.getElementById("paypal-field")!;
+      const ethereumInput = document.getElementById("ethereum-field")!;
+      const bitcoinInput = document.getElementById("bitcoin-field")!;
 
-      // Get Dail Bills
-      const newBills = oireachtasService
-        .getDailBills(billsApiRequestUrl)
-        .then(response => {
-          // If there are bills returned in this response, map them to Bill Objects then return the list of them.
-          if (response.results) {
-            logger.info(
-              `${response.results.length} results returned from api.oireachtas.ie`
-            );
-            return response.results.map(function(result) {
-              return result.bill;
-            });
-          } else {
-            logger.warn(`api.oireachtas.ie returned no results for voting on.`);
-            return;
+      // Get values
+      const domain: string = (domainNameInput as HTMLInputElement).value;
+      const email: string = (emailInput as HTMLInputElement).value;
+      const phone: string = (phoneInput as HTMLInputElement).value;
+      const iban: string = (ibanInput as HTMLInputElement).value;
+      const payPal: string = (payPalInput as HTMLInputElement).value;
+      const ethereum: string = (ethereumInput as HTMLInputElement).value;
+      const bitcoin: string = (bitcoinInput as HTMLInputElement).value;
+
+      const uuid = uuidv4();
+      var options = {
+        method: "POST",
+        uri:
+          "https://7eggkw15dk.execute-api.us-west-2.amazonaws.com/Live/party/register",
+        body: {
+          user: uuid,
+          payments: {
+            iban,
+            payPal,
+            ethereum,
+            bitcoin
+          },
+          identities: {
+            domain,
+            email,
+            phone
           }
+        },
+
+        json: true // Automatically stringifies the body to JSON
+      };
+      var rp = require("request-promise-native");
+      rp(options)
+        .then((response: any) => {
+          resolve(response);
         })
-        .catch(error => {
-          logger.error(
-            "Error thrown while trying to retrieve bills from the oireachtas api. "
-          );
+        .catch((error: any) => {
           reject(error);
         });
-      resolve(newBills);
     });
   }
 
@@ -162,17 +164,22 @@ class App extends React.Component<Props, State> {
           <Grid item xs={12}>
             <Button
               size={"large"}
+              color={"primary"}
+              fullWidth
               onClick={() => this.save()}
               variant={"contained"}
             >
-              Save
+              Confirm
             </Button>
           </Grid>
 
           <Grid item xs={12}>
             {/* Identifying myself and donation address */}
             <Paper className={"paper"}>
-              <Typography variant="caption">Built by SibosYellow.</Typography>
+              <Typography variant="caption">
+                Built by <span className={"yellow"}>SibosYellow</span> for the
+                SIBOS 2019 Hackathon
+              </Typography>
             </Paper>
           </Grid>
         </Grid>

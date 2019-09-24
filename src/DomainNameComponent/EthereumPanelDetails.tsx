@@ -40,9 +40,8 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   })
 );
-export default function DomainNamePanelDetails(props: any) {
+export default function EthereumPanelDetails(props: any) {
   const classes = useStyles({});
-
   const [values, setValues] = React.useState({
     domainName: ""
   });
@@ -81,8 +80,8 @@ export default function DomainNamePanelDetails(props: any) {
       <Grid container spacing={2} alignItems={"center"}>
         <Grid item>
           <TextField
-            id="domain-name-field"
-            label="Domain Name"
+            id="ethereum-field"
+            label="Ethereum Address"
             value={values.domainName}
             disabled={success}
             margin="normal"
@@ -98,7 +97,7 @@ export default function DomainNamePanelDetails(props: any) {
               disabled={loading}
               onClick={handleButtonClick}
             >
-              Verify Ownership
+              Verify your Ethereum Address
             </Button>
             {loading && (
               <CircularProgress size={24} className={classes.buttonProgress} />

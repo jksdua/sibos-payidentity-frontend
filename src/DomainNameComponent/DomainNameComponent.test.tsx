@@ -1,4 +1,4 @@
-import BillComponent from "./DomainNameComponent";
+import BillComponent from "./Identities";
 import Bill from "../OireachtasService/interfaces/iBill";
 import React from "react";
 import { shallow } from "enzyme";

@@ -67,7 +67,7 @@ export default function MobileNumberPanelDetails(props: any) {
         setSuccess(true);
         setLoading(false);
         props.setCheckMark(true);
-      }, 2000);
+      }, 1000);
     }
   };
   const handleInputChange = (name: string) => (event: {
