@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SibosYellowFrontEnd/static/css/main.a8a1fc13.chunk.css",
+    "main.js": "/SibosYellowFrontEnd/static/js/main.ba9410f3.chunk.js",
+    "main.js.map": "/SibosYellowFrontEnd/static/js/main.ba9410f3.chunk.js.map",
+    "runtime~main.js": "/SibosYellowFrontEnd/static/js/runtime~main.809e0f9c.js",
+    "runtime~main.js.map": "/SibosYellowFrontEnd/static/js/runtime~main.809e0f9c.js.map",
+    "static/js/2.cb91163d.chunk.js": "/SibosYellowFrontEnd/static/js/2.cb91163d.chunk.js",
+    "static/js/2.cb91163d.chunk.js.map": "/SibosYellowFrontEnd/static/js/2.cb91163d.chunk.js.map",
+    "index.html": "/SibosYellowFrontEnd/index.html",
+    "precache-manifest.77e63b3ad2186b9d2567612734ace40e.js": "/SibosYellowFrontEnd/precache-manifest.77e63b3ad2186b9d2567612734ace40e.js",
+    "service-worker.js": "/SibosYellowFrontEnd/service-worker.js",
+    "static/css/main.a8a1fc13.chunk.css.map": "/SibosYellowFrontEnd/static/css/main.a8a1fc13.chunk.css.map"
+  }
+}
