@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/citizens-vote/static/css/main.2f279fa6.chunk.css",
-    "main.js": "/citizens-vote/static/js/main.4b02015f.chunk.js",
-    "main.js.map": "/citizens-vote/static/js/main.4b02015f.chunk.js.map",
-    "runtime~main.js": "/citizens-vote/static/js/runtime~main.074be6c1.js",
-    "runtime~main.js.map": "/citizens-vote/static/js/runtime~main.074be6c1.js.map",
-    "static/js/2.db0ad0f2.chunk.js": "/citizens-vote/static/js/2.db0ad0f2.chunk.js",
-    "static/js/2.db0ad0f2.chunk.js.map": "/citizens-vote/static/js/2.db0ad0f2.chunk.js.map",
-    "index.html": "/citizens-vote/index.html",
-    "precache-manifest.26930c0a14240491bb177d63842518ba.js": "/citizens-vote/precache-manifest.26930c0a14240491bb177d63842518ba.js",
-    "service-worker.js": "/citizens-vote/service-worker.js",
-    "static/css/main.2f279fa6.chunk.css.map": "/citizens-vote/static/css/main.2f279fa6.chunk.css.map",
-    "static/media/ethereum-metamask-chrome.png": "/citizens-vote/static/media/ethereum-metamask-chrome.79226bac.png"
+    "main.css": "/sibos-payidentity-frontend/static/css/main.a8a1fc13.chunk.css",
+    "main.js": "/sibos-payidentity-frontend/static/js/main.fe66dadf.chunk.js",
+    "main.js.map": "/sibos-payidentity-frontend/static/js/main.fe66dadf.chunk.js.map",
+    "runtime~main.js": "/sibos-payidentity-frontend/static/js/runtime~main.80210cf2.js",
+    "runtime~main.js.map": "/sibos-payidentity-frontend/static/js/runtime~main.80210cf2.js.map",
+    "static/js/2.255d1deb.chunk.js": "/sibos-payidentity-frontend/static/js/2.255d1deb.chunk.js",
+    "static/js/2.255d1deb.chunk.js.map": "/sibos-payidentity-frontend/static/js/2.255d1deb.chunk.js.map",
+    "index.html": "/sibos-payidentity-frontend/index.html",
+    "precache-manifest.b24a359304240490fd7e13b3e0ad43d5.js": "/sibos-payidentity-frontend/precache-manifest.b24a359304240490fd7e13b3e0ad43d5.js",
+    "service-worker.js": "/sibos-payidentity-frontend/service-worker.js",
+    "static/css/main.a8a1fc13.chunk.css.map": "/sibos-payidentity-frontend/static/css/main.a8a1fc13.chunk.css.map"
   }
 }

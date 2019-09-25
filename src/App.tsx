@@ -3,17 +3,19 @@ import uuidv4 from "uuid";
 import Typography from "@material-ui/core/Typography";
 import withRoot from "./withRoot";
 import { Grid, Paper, Button } from "@material-ui/core";
-import Oireachtas from "./OireachtasService/oireachtas";
 import Bill from "./OireachtasService/interfaces/iBill";
-import CastVoteModalComponent from "./CastVoteModalComponent/CastVoteModalComponent";
-import BlockchainService from "./BlockchainService/blockchainService";
 import PaymentMethodPanels from "./DomainNameComponent/PaymentMethodPanels";
 import Identities from "./DomainNameComponent/Identities";
+import { withSnackbar } from "notistack";
 
 /**
  * Main page. Outlines what this website is for and contains the sub modules for voting and onboarding.
  */
-interface Props {}
+interface Props {
+  // Functions for toast
+  enqueueSnackbar: any;
+  closeSnackbar: any;
+}
 interface State {
   castVoteModalOpen: boolean;
   bills: Bill[];
@@ -34,7 +36,7 @@ class App extends React.Component<Props, State> {
   /**
    * Saves the identities entered.
    */
-  async save() {
+  async save(enqueueSnackbar: any) {
     return new Promise(function(resolve, reject) {
       // Get identity Inputs
       const domainNameInput = document.getElementById("domain-name-field")!;
@@ -81,52 +83,23 @@ class App extends React.Component<Props, State> {
       var rp = require("request-promise-native");
       rp(options)
         .then((response: any) => {
+          enqueueSnackbar("Saved", {
+            variant: "success"
+          });
           resolve(response);
         })
         .catch((error: any) => {
+          enqueueSnackbar("Error", {
+            variant: "error"
+          });
           reject(error);
         });
     });
   }
 
-  /**
-   * This function is passed down to a Bill Component. When called it is passed the Bill interface and a boolean, true meaning voting in favour
-   * @param bill
-   * @param vote
-   */
-  triggerCastVoteModal(bill: Bill, vote: boolean) {
-    this.setState({
-      ...this.state,
-      castVoteModalOpen: true,
-      billToVoteOn: bill,
-      inFavour: vote
-    });
-  }
-
-  handleClose = (event: any, reason: any) => {
-    this.setState({
-      ...this.state,
-      castVoteModalOpen: false
-    });
-  };
-
-  isWeb3User = (): boolean => {
-    return BlockchainService.isWeb3Injected();
-  };
-
-  handleClick = () => {
-    this.setState({ ...this.state, castVoteModalOpen: true });
-  };
-
   render() {
     return (
       <div className={"centerColumn"}>
-        <CastVoteModalComponent
-          open={this.state.castVoteModalOpen}
-          handleClose={this.handleClose}
-          bill={this.state.billToVoteOn}
-          inFavour={this.state.inFavour}
-        />
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Paper className={"paper"}>
@@ -166,7 +139,7 @@ class App extends React.Component<Props, State> {
               size={"large"}
               color={"primary"}
               fullWidth
-              onClick={() => this.save()}
+              onClick={() => this.save(this.props.enqueueSnackbar)}
               variant={"contained"}
             >
               Confirm
@@ -188,4 +161,4 @@ class App extends React.Component<Props, State> {
   }
 }
 
-export default withRoot(App);
+export default withRoot(withSnackbar(App));
