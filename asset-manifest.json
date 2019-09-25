@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/sibos-payidentity-frontend/static/css/main.a8a1fc13.chunk.css",
-    "main.js": "/sibos-payidentity-frontend/static/js/main.72a6054e.chunk.js",
-    "main.js.map": "/sibos-payidentity-frontend/static/js/main.72a6054e.chunk.js.map",
+    "main.js": "/sibos-payidentity-frontend/static/js/main.82591f7c.chunk.js",
+    "main.js.map": "/sibos-payidentity-frontend/static/js/main.82591f7c.chunk.js.map",
     "runtime~main.js": "/sibos-payidentity-frontend/static/js/runtime~main.80210cf2.js",
     "runtime~main.js.map": "/sibos-payidentity-frontend/static/js/runtime~main.80210cf2.js.map",
     "static/js/2.f8951b5a.chunk.js": "/sibos-payidentity-frontend/static/js/2.f8951b5a.chunk.js",
     "static/js/2.f8951b5a.chunk.js.map": "/sibos-payidentity-frontend/static/js/2.f8951b5a.chunk.js.map",
     "index.html": "/sibos-payidentity-frontend/index.html",
-    "precache-manifest.c6c1e0b58b73d639a84e6c543bcf5cf0.js": "/sibos-payidentity-frontend/precache-manifest.c6c1e0b58b73d639a84e6c543bcf5cf0.js",
+    "precache-manifest.00eed7961f80cf7fd9f4a57d1276777b.js": "/sibos-payidentity-frontend/precache-manifest.00eed7961f80cf7fd9f4a57d1276777b.js",
     "service-worker.js": "/sibos-payidentity-frontend/service-worker.js",
     "static/css/main.a8a1fc13.chunk.css.map": "/sibos-payidentity-frontend/static/css/main.a8a1fc13.chunk.css.map"
   }

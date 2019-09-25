@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2c3cda543f1562f16967ec46acc8e698",
+    "revision": "521fd42d3b7c8f6d29a61969e4a156e8",
     "url": "/sibos-payidentity-frontend/index.html"
   },
   {
-    "revision": "5c3b18e8b271a96a511d",
+    "revision": "02cabb165a87d1d8b295",
     "url": "/sibos-payidentity-frontend/static/css/main.a8a1fc13.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sibos-payidentity-frontend/static/js/2.f8951b5a.chunk.js"
   },
   {
-    "revision": "5c3b18e8b271a96a511d",
-    "url": "/sibos-payidentity-frontend/static/js/main.72a6054e.chunk.js"
+    "revision": "02cabb165a87d1d8b295",
+    "url": "/sibos-payidentity-frontend/static/js/main.82591f7c.chunk.js"
   },
   {
     "revision": "b8e029ddf8b53949779c",

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/sibos-payidentity-frontend/precache-manifest.c6c1e0b58b73d639a84e6c543bcf5cf0.js"
+  "/sibos-payidentity-frontend/precache-manifest.00eed7961f80cf7fd9f4a57d1276777b.js"
 );
 
 self.addEventListener('message', (event) => {
