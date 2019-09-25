@@ -2,8 +2,9 @@
   fetch('https://9p6vivastb.execute-api.us-east-2.amazonaws.com/prod/party/query?identity=kyne.eu&type=domain').then(function(paymentInfo) {
     document.body.innerHTML = `
       <h1>IBAN</h1>
-      <p>${paymentInfo.iban}</p>
+      <p>${paymentInfo.payments.iban}</p>
       <h1>Ethereum</h1>
+      <p>${paymentInfo.payments.ethereum}</p>
     `;
   });
 </script>
