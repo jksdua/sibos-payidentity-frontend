@@ -86,6 +86,7 @@ export default function MobileNumberPanelDetails(props: any) {
             value={values.domainName}
             disabled={success}
             margin="normal"
+            variant="outlined"
             onChange={handleInputChange("domainName")}
           />
         </Grid>

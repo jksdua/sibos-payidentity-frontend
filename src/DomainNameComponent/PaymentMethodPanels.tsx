@@ -116,13 +116,13 @@ export default function PaymentMethodPanels() {
         <EthereumPanelDetails setCheckMark={setEthereum} />
       </ExpansionPanel>
       <ExpansionPanel
-        expanded={expanded === "panel2"}
-        onChange={handleChange("panel2")}
+        expanded={expanded === "panel4"}
+        onChange={handleChange("panel4")}
       >
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
+          aria-controls="panel4bh-content"
+          id="panel4bh-header"
         >
           <Grid container spacing={2} justify={"space-between"}>
             <Grid item>

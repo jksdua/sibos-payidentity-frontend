@@ -84,6 +84,7 @@ export default function PayPalPanelDetails(props: any) {
             label="PayPal Email"
             value={values.domainName}
             disabled={success}
+            variant="outlined"
             margin="normal"
             onChange={handleInputChange("domainName")}
           />
